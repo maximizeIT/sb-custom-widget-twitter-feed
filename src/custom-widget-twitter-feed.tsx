@@ -14,14 +14,39 @@
 import React, { ReactElement } from "react";
 import { BlockAttributes } from "widget-sdk";
 
+// https://www.npmjs.com/package/react-twitter-widgets
+// https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/guides/scripting-factory-functions
+import { Timeline } from 'react-twitter-widgets';
+
 /**
  * React Component
  */
 export interface CustomWidgetTwitterFeedProps extends BlockAttributes {
-  message: string;
+  twittername: string,
+  datawidth: number,
+  dataheight: number,
 }
 
-export const CustomWidgetTwitterFeed = ({ message, contentLanguage }: CustomWidgetTwitterFeedProps): ReactElement => {
-  return <div>Hello {message} {contentLanguage}</div>;
+export const CustomWidgetTwitterFeed = ({ twittername, datawidth, dataheight }: CustomWidgetTwitterFeedProps): ReactElement => {
+
+  return <Timeline
+    dataSource={{ sourceType: "url", url: `https://twitter.com/${twittername}` }}
+    options={{ width: datawidth, height: dataheight }}
+    renderError={_err =>
+      "Could not load timeline! ...Your custom component here"
+    }
+  />
+  
+  // return <p>
+  //     <a 
+  //       className="twitter-timeline" 
+  //       href={ 'https://twitter.com/' + twittername }
+  //       target="_blank"
+  //       data-width={datawidth} 
+  //       data-height={dataheight}
+  //       data-link-color={datalinkcolor}>
+  //         {twittername} Tweets
+  //     </a>
+  //   </p>;
 };
 

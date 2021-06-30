@@ -25,7 +25,7 @@ import pkg from '../package.json'
  */
 const factory: BlockFactory = (BaseBlockClass, _widgetApi) => {
   /**
-   *  <custom-widget-twitter-feed message="world!"></custom-widget-twitter-feed>
+   *  <custom-widget-twitter-feed></custom-widget-twitter-feed>
    */
   return class CustomWidgetTwitterFeedBlock extends BaseBlockClass implements BaseBlock {
     public constructor() {
@@ -50,7 +50,7 @@ const factory: BlockFactory = (BaseBlockClass, _widgetApi) => {
      */
     public static get observedAttributes(): string[] {
       const defaults = ["content-language", "widget-title", "on-card"];
-      return [...defaults, "message"];
+      return [...defaults, "twittername", "datawidth", "dataheight"];
     }
 
     /**
@@ -69,7 +69,7 @@ const factory: BlockFactory = (BaseBlockClass, _widgetApi) => {
 const blockDefinition: BlockDefinition = {
     name: "custom-widget-twitter-feed",
     factory: factory,
-    attributes: ['message'],
+    attributes: ['twittername', 'datawidth', 'dataheight'],
     blockLevel: 'block',
     configurationSchema: configurationSchema,
     uiSchema: uiSchema,

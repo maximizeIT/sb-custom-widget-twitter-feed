@@ -19,10 +19,26 @@ import { JSONSchema7 } from "json-schema";
  * see https://react-jsonschema-form.readthedocs.io/en/latest/ for documentation
  */
 export const configurationSchema: JSONSchema7 = {
+  required: [
+    "twittername"
+  ],
   properties: {
-    message: {
+    twittername: {
       type: "string",
-      title: "message",
+      title: "Twitter Handle",
+      default: "StaffbaseHQ",
+    },
+    datawidth: {
+      type: "integer",
+      title: "Feed Width",
+      default: 350,
+      minimum: 180,
+    },
+    dataheight: {
+      type: "integer",
+      title: "Feed Height",
+      default: 700,
+      minimum: 200,    
     },
   },
 };
@@ -32,7 +48,15 @@ export const configurationSchema: JSONSchema7 = {
  * @see https://react-jsonschema-form.readthedocs.io/en/latest/api-reference/uiSchema/
  */
 export const uiSchema: UiSchema = {
-  message: {
-    "ui:help": "Please enter a message to show",
+  twittername: {
+    "ui:help": "Please enter a Twitter name / handle to use for the feed.",
+  },
+  datawidth: {
+    "ui:help": "Please enter a width for the Twitter feed.",
+    "ui:widget": "updown"
+  },
+  dataheight: {
+    "ui:help": "Please enter a height for the Twitter feed.",
+    "ui:widget": "updown"
   },
 };
