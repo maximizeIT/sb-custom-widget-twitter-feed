@@ -50,7 +50,7 @@ const factory: BlockFactory = (BaseBlockClass, _widgetApi) => {
      */
     public static get observedAttributes(): string[] {
       const defaults = ["content-language", "widget-title", "on-card"];
-      return [...defaults, "twittername", "datawidth", "dataheight"];
+      return [...defaults, "twittername", "width", "height", "tweetlimit", "darktheme", "border", "bordercolor", "noheader", "nofooter", "noscrollbar"];
     }
 
     /**
@@ -69,7 +69,7 @@ const factory: BlockFactory = (BaseBlockClass, _widgetApi) => {
 const blockDefinition: BlockDefinition = {
     name: "custom-widget-twitter-feed",
     factory: factory,
-    attributes: ['twittername', 'datawidth', 'dataheight'],
+    attributes: ['twittername', 'width', 'height', 'tweetlimit', 'darktheme', 'border', 'bordercolor', 'noheader', 'nofooter', 'noscrollbar'],
     blockLevel: 'block',
     configurationSchema: configurationSchema,
     uiSchema: uiSchema,
