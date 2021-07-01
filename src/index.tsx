@@ -73,7 +73,8 @@ const blockDefinition: BlockDefinition = {
     blockLevel: 'block',
     configurationSchema: configurationSchema,
     uiSchema: uiSchema,
-    label: 'Twitter Feed'
+    label: 'Twitter Feed',
+    iconUrl: "https://maximizeit.github.io/sb-custom-widget-twitter-feed/resources/twitter-icon.png",
 };
 
 /**
