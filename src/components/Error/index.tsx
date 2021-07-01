@@ -7,5 +7,5 @@ export const Error = () => {
     padding: "5px 0px",
   };
 
-  return <h2 style={errorMessageStyle}>Could not load timeline.<br/>Please check your settings or contact the developer of the widget.</h2>;
+  return <h2 style={errorMessageStyle}>Could not load Twitter feed.<br/>Please check your settings or contact the developer of the widget.</h2>;
 };
