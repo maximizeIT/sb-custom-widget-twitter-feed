@@ -62,19 +62,21 @@ export const CustomWidgetTwitterFeed = ({ twittername, height, tweetlimit, darkt
     chrome = "noscrollbar";
   }
 
-  return <Timeline
-    dataSource={{ sourceType: "url", url: twittername ? `https://twitter.com/${twittername}` : `https://twitter.com/StaffbaseHQ` }}
-    
-    options={{
-      height: height ? height : defaultHeight,
-      borderColor: useBorder ? bordercolor : null, 
-      theme: useDarkTheme ? "dark" : "light",
-      tweetLimit: tweetlimit ? tweetlimit : null,
-      chrome: chrome,
-      dnt: true // default: Set to true, so the embed and its embedded page on your site are not used for purposes that include personalized suggestions and personalized ads
-    }}
+  return <div className="cwTwitterFeed">
+    <Timeline
+      dataSource={{ sourceType: "url", url: twittername ? `https://twitter.com/${twittername}` : `https://twitter.com/StaffbaseHQ` }}
+      
+      options={{
+        height: height ? height : defaultHeight,
+        borderColor: useBorder ? bordercolor : null, 
+        theme: useDarkTheme ? "dark" : "light",
+        tweetLimit: tweetlimit ? tweetlimit : null,
+        chrome: chrome,
+        dnt: true // default: Set to true, so the embed and its embedded page on your site are not used for purposes that include personalized suggestions and personalized ads
+      }}
 
-    renderError={_err => <Error /> }
-  />
+      renderError={_err => <Error /> }
+    />
+  </div>
 };
 
