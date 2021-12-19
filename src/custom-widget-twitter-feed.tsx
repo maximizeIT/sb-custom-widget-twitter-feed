@@ -62,21 +62,33 @@ export const CustomWidgetTwitterFeed = ({ twittername, height, tweetlimit, darkt
     chrome = "noscrollbar";
   }
 
-  return <div className="cwTwitterFeed">
-    <Timeline
-      dataSource={{ sourceType: "url", url: twittername ? `https://twitter.com/${twittername}` : `https://twitter.com/StaffbaseHQ` }}
-      
-      options={{
-        height: height ? height : defaultHeight,
-        borderColor: useBorder ? bordercolor : null, 
-        theme: useDarkTheme ? "dark" : "light",
-        tweetLimit: tweetlimit ? tweetlimit : null,
-        chrome: chrome,
-        dnt: true // default: Set to true, so the embed and its embedded page on your site are not used for purposes that include personalized suggestions and personalized ads
-      }}
+  return <div>
+      <div className="cwTwitterFeed">
+      <Timeline
+        dataSource={{ sourceType: "url", url: twittername ? `https://twitter.com/${twittername}` : `https://twitter.com/StaffbaseHQ` }}
+        
+        options={{
+          height: height ? height : defaultHeight,
+          borderColor: useBorder ? bordercolor : null, 
+          theme: useDarkTheme ? "dark" : "light",
+          tweetLimit: tweetlimit ? tweetlimit : null,
+          chrome: chrome,
+          dnt: true // default: Set to true, so the embed and its embedded page on your site are not used for purposes that include personalized suggestions and personalized ads
+        }}
 
-      renderError={_err => <Error /> }
-    />
+        renderError={_err => <Error /> }
+      />
+    </div>
+    <br /><br />
+    <div data-widget-conf-grid-type="100" data-widget-type="Section" data-widget-src="internal://staffbase.content.widgets.Section">
+      <div>
+        <div data-widget-conf-type="warning" data-widget-on-card="true" data-widget-type="Infobox" data-widget-src="internal://staffbase.content.widgets.Infobox">
+          <p>PROTOTYPES AND FOR DEMO PURPOSES ONLY!</p>
+          <p>NOT FOR PRODUCTION USE!</p>
+          <p>NOT AVAILABLE TO CUSTOMERS!</p>
+        </div>
+      </div>
+    </div>
   </div>
 };
 
